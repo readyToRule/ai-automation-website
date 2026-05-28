@@ -32,7 +32,7 @@ export default function Login() {
         onClick={() => window.history.back()}
         className="mb-6 text-cyan-400 hover:text-cyan-300 transition"
       >
-          ← Back
+          ← Back    
       </button>
         <h1 className="text-4xl font-bold text-white mb-2">
           Login to Your Account
@@ -55,7 +55,6 @@ export default function Login() {
             type="password"
             placeholder="Enter password"
             className="w-full p-4 rounded-2xl bg-slate-800 text-white border border-white/10 outline-none"
-            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
