@@ -8,6 +8,19 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  async function handleGoogleLogin() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin + "/dashboard",
+    },
+  });
+
+  if (error) {
+    alert(error.message);
+  }
+}
+
   async function handleLogin(e) {
     e.preventDefault();
 
@@ -63,6 +76,13 @@ export default function Login() {
             className="w-full bg-cyan-400 text-slate-950 py-4 rounded-2xl font-bold hover:bg-cyan-300 transition"
           >
             Login
+          </button>
+          <button
+            type="button"
+            onClick={handleGoogleLogin}
+            className="w-full bg-white text-slate-950 py-4 rounded-2xl font-bold hover:bg-slate-200 transition mt-4"
+          > 
+           Continue with Google
           </button>
         </form>
       </div>

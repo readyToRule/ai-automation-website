@@ -1,11 +1,9 @@
-
 import React from "react";
 import {
   Bot,
   Workflow,
   MessageSquare,
   Zap,
-  ShieldCheck,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
@@ -15,6 +13,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import FSDGenerator from "./pages/FSDGenerator";
 
 function HomePage() {
   const services = [
@@ -26,7 +25,7 @@ function HomePage() {
     {
       icon: <Workflow className="w-8 h-8" />,
       title: "Workflow Automation",
-      desc: "Automate repetitive business tasks like lead handling, follow-ups, reports, and approvals.",
+      desc: "Automate repetitive business tasks like FSD creation, test cases, reports, approvals, and documentation.",
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
@@ -48,22 +47,13 @@ function HomePage() {
             <div className="w-10 h-10 rounded-2xl bg-cyan-400 flex items-center justify-center text-slate-950 font-bold">
               AI
             </div>
-
             <span className="text-xl font-bold">AutoMind AI</span>
           </div>
 
           <nav className="hidden md:flex gap-8 text-sm text-slate-300">
-            <a href="#services" className="hover:text-white">
-              Services
-            </a>
-
-            <a href="#process" className="hover:text-white">
-              Process
-            </a>
-
-            <a href="#contact" className="hover:text-white">
-              Contact
-            </a>
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#process" className="hover:text-white">Process</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
           </nav>
 
           <div className="flex gap-4 items-center">
@@ -124,7 +114,7 @@ function HomePage() {
               "Lead response automation",
               "AI customer support",
               "WhatsApp chatbot",
-              "Daily report automation",
+              "FSD document generator",
               "CRM workflow setup",
             ].map((item) => (
               <div
@@ -156,15 +146,19 @@ function HomePage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-slate-950 border border-white/10 rounded-3xl p-6 hover:border-cyan-400 transition"
+                className="bg-slate-950 border border-white/10 rounded-3xl p-7 min-h-[250px] flex flex-col justify-between hover:border-cyan-400 hover:scale-105 transition"
               >
-                <div className="text-cyan-400 mb-5">{service.icon}</div>
+                <div>
+                  <div className="text-cyan-400 mb-6">{service.icon}</div>
 
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4">
+                    {service.title}
+                  </h3>
 
-                <p className="text-slate-400 leading-relaxed">
-                  {service.desc}
-                </p>
+                  <p className="text-slate-400 leading-relaxed">
+                    {service.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -181,11 +175,11 @@ function HomePage() {
 export default function App() {
   return (
     <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-  <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/fsd-generator" element={<FSDGenerator />} />
     </Routes>
   );
 }
-
