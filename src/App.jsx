@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import FSDGenerator from "./pages/FSDGenerator";
+import WorkflowAutomation from "./pages/WorkflowAutomation";
 
 function HomePage() {
   const services = [
@@ -180,6 +181,7 @@ export default function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/fsd-generator" element={<FSDGenerator />} />
+      <Route path="/workflow-automation" element={<WorkflowAutomation />} />
     </Routes>
   );
 }

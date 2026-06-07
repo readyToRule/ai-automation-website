@@ -31,7 +31,8 @@ export default function Dashboard() {
         icon: <Workflow className="w-8 h-8" />,
         title: "Workflow Automation",
         desc: "Automate repetitive business tasks like FSD creation, test cases, reports, approvals, and documentation.",
-      },
+        path: "/workflow-automation",
+    },
       {
         icon: <MessageSquare className="w-8 h-8" />,
         title: "CRM & Sales Automation",
