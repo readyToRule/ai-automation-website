@@ -88,7 +88,7 @@ export default function FSDGenerator() {
       <h1 className="text-4xl font-bold mb-4">AI FSD Generator</h1>
 
       <p className="text-slate-400 mb-8">
-        Provide your requirements and optionally upload a `.docx` template. Groq AI will fill it in and return a completed document.
+        Provide your requirements and optionally upload a `.docx` template. AI will fill it in and return a completed document.
       </p>
 
       <div className="grid grid-cols-1 gap-6 mb-6">
