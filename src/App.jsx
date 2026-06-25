@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Bot,
   Workflow,
@@ -8,7 +8,8 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { supabase } from "./supabaseClient"; // Make sure this matches your path
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -175,6 +176,26 @@ function HomePage() {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 1. Check immediately on load (Catches the fast Google redirect)
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        navigate("/dashboard");
+      }
+    });
+
+    // 2. Listen for any future login/logout events
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session) {
+        navigate("/dashboard");
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -183,7 +204,6 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/fsd-generator" element={<FSDGenerator />} />
       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
-      {/* ADDED THE MISSING ROUTE HERE: */}
       <Route path="/test-case-generator" element={<TestCaseGenerator />} />
     </Routes>
   );
