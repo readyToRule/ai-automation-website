@@ -15,6 +15,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import FSDGenerator from "./pages/FSDGenerator";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
+import TestCaseGenerator from "./pages/TestCaseGenerator";  
 
 function HomePage() {
   const services = [
@@ -182,6 +183,8 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/fsd-generator" element={<FSDGenerator />} />
       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+      {/* ADDED THE MISSING ROUTE HERE: */}
+      <Route path="/test-case-generator" element={<TestCaseGenerator />} />
     </Routes>
   );
 }

@@ -18,21 +18,24 @@ export default function WorkflowAutomation() {
       desc: "Generate Functional Specification Documents using AI.",
       icon: <FileText className="w-8 h-8 text-cyan-400" />,
       path: "/fsd-generator",
-    },
+    },  
     {
       title: "BRD Generator",
       desc: "Convert requirements into structured BRD documents.",
       icon: <ClipboardList className="w-8 h-8 text-cyan-400" />,
+      path: "/brd-generator", // Added routing for BRD tool
     },
     {
       title: "Test Case Generator",
       desc: "Generate professional QA test cases automatically.",
       icon: <FileCheck className="w-8 h-8 text-cyan-400" />,
+      path: "/test-case-generator",
     },
     {
       title: "SQL Generator",
       desc: "Generate SQL queries from business requirements.",
       icon: <Database className="w-8 h-8 text-cyan-400" />,
+      path: "/sql-generator", // Added routing for SQL tool
     },
   ];
 
@@ -91,4 +94,4 @@ export default function WorkflowAutomation() {
       </section>
     </div>
   );
-}
+} 
